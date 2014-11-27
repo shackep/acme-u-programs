@@ -7,6 +7,8 @@ Author: Peter Shackelford
 Version: 0.1
 Author URI: http://pixelplow.com/
 */
+
+//This registers the degree level taxonomy that will be used by the acmeu program type.
 add_action( 'init', 'register_taxonomy_degree_levels' );
 
 function register_taxonomy_degree_levels() {
@@ -43,7 +45,56 @@ function register_taxonomy_degree_levels() {
 
     register_taxonomy( 'acmeu_degree_levels', array('acmeu_program'), $args );
 }
-add_action( 'init', 'register_cpt_acmeu_program' );
+/**
+ * Setting the default terms for program levels
+ *
+ * @uses    get_terms
+ * @uses    wp_insert_term
+ * @uses    acmeu_u_program_levels
+ * @uses    term_exists
+ *
+ * @since   1.0
+ * @author  WP Theme Tutorial, Curtis McHale
+ */
+function acmeu_u_program_default_levels(){
+ 
+        // see if we already have populated any terms
+    $level = get_terms( 'acmeu_degree_levels', array( 'hide_empty' => false ) );
+ 
+    // if no terms then lets add our terms
+    if( empty( $level ) ){
+        $levels = acmeu_u_program_levels();
+        foreach( $levels as $level ){
+            if( !term_exists( $level['name'], 'acmeu_degree_levels' ) ){
+                wp_insert_term( $level['name'], 'acmeu_degree_levels', array( 'slug' => $level['short'] ) );
+            }
+        }
+    }
+ 
+}
+add_action( 'init', 'acmeu_u_program_default_levels' );
+
+
+/**
+ * Returns an array of degree levels with name and slug
+ *
+ * @return  array
+ *
+ * @since   1.0
+ * @author  WP Theme Tutorial, Curtis McHale
+ */
+function acmeu_u_program_levels(){
+ 
+    $levels = array(
+        '0' => array( 'name' => 'Major', 'short' => 'major' ),
+        '1' => array( 'name' => 'Minor', 'short' => 'minor'),
+        '2' => array( 'name' => 'Endorsement', 'short' => 'endorsement'),
+    );
+ 
+    return $levels;
+}
+
+add_action( 'init', 'register_cpt_acmeu_program' );// Registers the CPT for acmeu_program
 
 function register_cpt_acmeu_program() {
 /*This first block handles how things appear to users in the admin panel.*/
