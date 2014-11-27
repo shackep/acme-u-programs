@@ -40,7 +40,7 @@ function register_taxonomy_degree_levels() {
         'hierarchical' => true,
         'rewrite' => true,
         'query_var' => true,
-        'capabilities' => array('manage_terms' => 'administrator','edit_terms' => 'administrator','delete_terms' => 'administrator'),
+        'capabilities' => array('manage_terms' => 'administrator','edit_terms' => 'administrator','delete_terms' => 'administrator'),//This makes it so only the administrator role can add new terms to the degree level taxonomy
     );
 
     register_taxonomy( 'acmeu_degree_levels', array('acmeu_program'), $args );
