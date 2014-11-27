@@ -38,9 +38,9 @@ function register_taxonomy_degree_levels() {
         'show_ui' => true,
         'show_tagcloud' => false,
         'hierarchical' => true,
-
         'rewrite' => true,
-        'query_var' => true
+        'query_var' => true,
+        'capabilities' => array('manage_terms' => 'administrator','edit_terms' => 'administrator','delete_terms' => 'administrator'),
     );
 
     register_taxonomy( 'acmeu_degree_levels', array('acmeu_program'), $args );
@@ -54,14 +54,14 @@ function register_taxonomy_degree_levels() {
  * @uses    term_exists
  *
  * @since   1.0
- * @author  WP Theme Tutorial, Curtis McHale
+ * @author  Based on WP Theme Tutorial, Curtis McHale
  */
 function acmeu_u_program_default_levels(){
  
         // see if we already have populated any terms
     $level = get_terms( 'acmeu_degree_levels', array( 'hide_empty' => false ) );
  
-    // if no terms then lets add our terms
+    // if no terms then lets add our terms.
     if( empty( $level ) ){
         $levels = acmeu_u_program_levels();
         foreach( $levels as $level ){
@@ -81,9 +81,9 @@ add_action( 'init', 'acmeu_u_program_default_levels' );
  * @return  array
  *
  * @since   1.0
- * @author  WP Theme Tutorial, Curtis McHale
+ * @author  Based on WP Theme Tutorial, Curtis McHale
  */
-function acmeu_u_program_levels(){
+function acmeu_u_program_levels(){//add as many levels as you need here before enabling your plugin.
  
     $levels = array(
         '0' => array( 'name' => 'Major', 'short' => 'major' ),
