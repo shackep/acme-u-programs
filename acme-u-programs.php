@@ -7,6 +7,42 @@ Author: Peter Shackelford
 Version: 0.1
 Author URI: http://pixelplow.com/
 */
+add_action( 'init', 'register_taxonomy_degree_levels' );
+
+function register_taxonomy_degree_levels() {
+
+    $labels = array( 
+        'name' => _x( 'Degree Levels', 'acmeu_degree_levels' ),
+        'singular_name' => _x( 'Degree Level', 'acmeu_degree_levels' ),
+        'search_items' => _x( 'Search Degree Levels', 'acmeu_degree_levels' ),
+        'popular_items' => _x( 'Popular Degree Levels', 'acmeu_degree_levels' ),
+        'all_items' => _x( 'All Degree Levels', 'acmeu_degree_levels' ),
+        'parent_item' => _x( 'Parent Degree Level', 'acmeu_degree_levels' ),
+        'parent_item_colon' => _x( 'Parent Degree Level:', 'acmeu_degree_levels' ),
+        'edit_item' => _x( 'Edit Degree Level', 'acmeu_degree_levels' ),
+        'update_item' => _x( 'Update Degree Level', 'acmeu_degree_levels' ),
+        'add_new_item' => _x( 'Add New Degree Level', 'acmeu_degree_levels' ),
+        'new_item_name' => _x( 'New Degree Level', 'acmeu_degree_levels' ),
+        'separate_items_with_commas' => _x( 'Separate degree levels with commas', 'acmeu_degree_levels' ),
+        'add_or_remove_items' => _x( 'Add or remove degree levels', 'acmeu_degree_levels' ),
+        'choose_from_most_used' => _x( 'Choose from the most used degree levels', 'acmeu_degree_levels' ),
+        'menu_name' => _x( 'Degree Levels', 'acmeu_degree_levels' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'public' => true,
+        'show_in_nav_menus' => false,
+        'show_ui' => true,
+        'show_tagcloud' => false,
+        'hierarchical' => true,
+
+        'rewrite' => true,
+        'query_var' => true
+    );
+
+    register_taxonomy( 'acmeu_degree_levels', array('acmeu_program'), $args );
+}
 add_action( 'init', 'register_cpt_acmeu_program' );
 
 function register_cpt_acmeu_program() {
