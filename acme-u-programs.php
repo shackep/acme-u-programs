@@ -1,4 +1,13 @@
-dd_action( 'init', 'register_cpt_acmeu_program' );
+<?php
+/*
+Plugin Name: Acme Programs
+Plugin URI: http://pixelplow.com
+Description:  this is the plugin that makes programs happen.
+Author: Peter Shackelford
+Version: 0.1
+Author URI: http://pixelplow.com/
+*/
+add_action( 'init', 'register_cpt_acmeu_program' );
 
 function register_cpt_acmeu_program() {
 /*This first block handles how things appear to users in the admin panel.*/
@@ -27,7 +36,7 @@ function register_cpt_acmeu_program() {
         'show_ui' => true,
         'show_in_menu' => true,
         'menu_position' => 5,
-        'manu_icon' => 'dashicons-awards'//dash icons are a great way to spiff up your content types in the admin menu.
+        'menu_icon' => 'dashicons-awards',//dash icons are a great way to spiff up your content types in the admin menu.
         'show_in_nav_menus' => true,
         'publicly_queryable' => true,
         'exclude_from_search' => false,
