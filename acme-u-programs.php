@@ -140,4 +140,28 @@ function register_cpt_acmeu_program() {
 
 				register_post_type( 'acmeu_program', $args );
 }
+function cmb2_sample_metaboxes( array $meta_boxes ) {
 
+	// Start with an underscore to hide fields from custom fields list
+	$prefix = '_acmeu_';
+
+	$meta_boxes['program-credits'] = array(
+		'id'            => 'program-credits',
+		'title'         => __( 'Program Credits', 'cmb2' ),
+		'object_types'  => array( 'acmeu_program', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+		'fields'        => array(
+			array(
+				'name'       => __( 'Credits', 'cmb2' ),
+				'desc'       => __( 'Enter a number. This will be displayed as "34 Credits"', 'cmb2' ),
+				'id'         => $prefix . 'program-credits',
+				'type'       => 'text_small'
+			)
+		)
+	);
+
+	return $meta_boxes;
+}
+add_filter( 'cmb2_meta_boxes', 'cmb2_sample_metaboxes' );
