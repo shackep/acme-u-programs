@@ -140,6 +140,7 @@ function register_cpt_acmeu_program() {
 
 				register_post_type( 'acmeu_program', $args );
 }
+// Everything above this line was covered in this post: http://pixelplow.com/setting-up-content-types/
 function cmb2_sample_metaboxes( array $meta_boxes ) {
 
 	// Start with an underscore to hide fields from custom fields list
