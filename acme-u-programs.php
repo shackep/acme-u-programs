@@ -1,14 +1,14 @@
 <?php
 /**
 Plugin Name: Acme Programs
+Depends: CMB2 (beta)
 Plugin URI: http://pixelplow.com
 Description:  this is the plugin that makes programs happen.
 Author: Peter Shackelford
 Version: 0.1
 Author URI: http://pixelplow.com/
 **/
-
-//Registers the degree level taxonomy used by the acmeu program type.
+	//Registers the degree level taxonomy used by the acmeu program type.
 add_action( 'init', 'register_taxonomy_degree_levels' );
 
 function register_taxonomy_degree_levels() {
