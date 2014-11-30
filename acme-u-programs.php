@@ -141,6 +141,7 @@ function register_cpt_acmeu_program() {
 				register_post_type( 'acmeu_program', $args );
 }
 // Everything above this line was covered in this post: http://pixelplow.com/setting-up-content-types/
+//What follows is dependant on having the CMB2 (Custom Meta Box 2) plugin installed and enabled. It can be found here: https://github.com/WebDevStudios/CMB2 and here: https://wordpress.org/plugins/cmb2/
 function cmb2_sample_metaboxes( array $meta_boxes ) {
 
 	// Start with an underscore to hide fields from custom fields list
