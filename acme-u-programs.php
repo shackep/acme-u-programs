@@ -7,6 +7,7 @@ Description:  This is the plugin that makes programs happen.
 Author: Peter Shackelford
 Version: 0.1
 Author URI: http://pixelplow.com/
+GitHub Theme URI: https://github.com/shackep/acme-u-programs
 **/
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
