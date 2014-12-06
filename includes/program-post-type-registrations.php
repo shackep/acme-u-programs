@@ -107,7 +107,7 @@ function register_cpt_acmeu_program() {
 					'hierarchical' => true,//This lets us make child posts
 					'description' => 'This is an Academic Program at Acme University',
 					'supports' => array( 'title', 'editor', 'thumbnail' ),//These are what we will use for title, description and hero graphic.
-					'taxonomies' => array( 'acmeu_degree_levels', 'acmeu_disciplines' ),//This is where we connect the program to the taxonomies we will be making later
+					'taxonomies' => array( 'acmeu_degree_levels', ),//This is where we connect the program to the taxonomies we will be making later
 					'public' => true,
 					'show_ui' => true,
 					'show_in_menu' => true,
